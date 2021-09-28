@@ -57,11 +57,11 @@
   </a>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" href="#"><i class="fas fa-list"></i> Lista de Proveedores</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-search"></i> Buscar Proveedor</a></li>
+    <li><a class="dropdown-item" href="listarproveedores.jsp"><i class="fas fa-list"></i> Lista de Proveedores</a></li>
+    <li><a class="dropdown-item" href="insertarproveedor.jsp"><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
+    <li><a class="dropdown-item" href="eliminarproveedor.jsp"><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
+    <li><a class="dropdown-item" href="actualizarproveedor.jsp"><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
+    <li><a class="dropdown-item" href="consultarproveedor.jsp"><i class="fas fa-search"></i> Buscar Proveedor</a></li>
   </ul>
 </div>
 
