@@ -42,5 +42,4 @@ public void setCorreo_cliente(String correo_cliente) {
 	this.correo_cliente = correo_cliente;
 }
 
-
 }
