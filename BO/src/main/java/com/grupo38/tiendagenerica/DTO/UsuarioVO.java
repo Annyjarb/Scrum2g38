@@ -42,8 +42,6 @@ public String getUsuario() {
 public void setUsuario(String usuario) {
 	this.usuario = usuario;
 }
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
+
 
 }

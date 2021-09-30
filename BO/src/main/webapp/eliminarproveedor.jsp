@@ -99,13 +99,15 @@
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Proveedor eliminado con exito</div>
 
+
+
 			<form id="form1">
 			
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">NIT</span> <input
+					<span class="input-group-text" id="basic-addon1"> NIT </span> <input
 						type="text" class="form-control"
 						placeholder="Inserte NIT aqui..."
-						aria-describedby="basic-addon1" required id="nit"><button type="button" class="btn btn-danger" onclick="eliminar()">
+						aria-describedby="basic-addon1" required id="nit_proveedor"><button type="button" class="btn btn-danger" onclick="eliminar()">
 				<i class="far fa-trash-alt"></i>
 			</button>
 				</div>
@@ -115,10 +117,10 @@
 
 			<script>
 		function eliminar() {
-			var y = document.getElementById("nit").value;
+			var y = document.getElementById("nit_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarproveedores', false);
+			req.open('GET', 'http://localhost:8080/listarproveedor', false);
 			req.send(null);
 			var proveedores = null;
 			if (req.status == 200)
@@ -127,9 +129,9 @@
 
 			for (i = 0; i < proveedores.length; i++) {
 				
-				console.log(proveedores[i].nit);
-				if (proveedores[i].nit == y) {
-					console.log(proveedores[i].nit + " " + y);
+				console.log( proveedores[i].nit_proveedor);
+				if (proveedores[i].nit_proveedor == y) {
+					console.log(proveedores[i].nit_proveedor + " " + y );
 					coincidencia = true;
 					break;
 				}
@@ -137,10 +139,10 @@
 			console.log(coincidencia);
 
 			if (coincidencia != false) {
-				var cedula=document.getElementById("nit").value;
+				var nit_proveedor=document.getElementById("nit_proveedor").value;
 				
 				var xhr = new XMLHttpRequest();
-				xhr.open("DELETE", "http://localhost:8080/eliminarproveedor?nit="+nit);
+				xhr.open("DELETE", "http://localhost:8080/eliminarproveedor?nit_proveedor="+ nit_proveedor);
 				
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");
@@ -148,7 +150,7 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.remove("visually-hidden");
 
-				document.getElementById("nit").value = "";
+				document.getElementById("nit_proveedor").value = "";
 				xhr.send();
 
 			} else {
@@ -158,7 +160,7 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
 				
-				document.getElementById("nit").value = "";;
+				document.getElementById("nit_proveedor").value = "";;
 			}
 		}
 	</script>

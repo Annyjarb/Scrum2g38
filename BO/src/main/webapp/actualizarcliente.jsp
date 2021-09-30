@@ -98,13 +98,13 @@
 			
 				
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> <input
+					<span class="input-group-text" id="basic-addon1">Cedula *</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte cedula aqui..."
 						aria-describedby="basic-addon1" required id="cedula_cliente">
 				</div>
 				<div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon3">Nombre completo</span>
+					<span class="input-group-text" id="basic-addon3">Nombre completo*</span>
 					<input type="text" class="form-control"
 						placeholder="Inserte nombre aqui..."
 						aria-describedby="basic-addon3" required id="nombre_cliente">

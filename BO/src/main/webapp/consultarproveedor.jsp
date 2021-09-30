@@ -95,6 +95,8 @@
 			<div id="correcto" class="alert alert-success visually-hidden"
 				role="alert">Proveedor encontrado con exito</div>
 
+
+
 			<form id="form1">
 			
 				<div class="input-group mb-3">
@@ -114,13 +116,13 @@
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">NIT</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon1" required id="nit" disabled="disabled">
+						aria-describedby="basic-addon1" required id="nit_proveedor" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon2">Ciudad</span> <input
 						type="text" class="form-control"
-						aria-describedby="basic-addon2" required id="ciudad" disabled="disabled">
+						aria-describedby="basic-addon2" required id="ciudad_proveedor" disabled="disabled">
 				</div>
 
 				<div class="input-group mb-3">
@@ -168,8 +170,8 @@
 				
 			if (usuario.toString()!=""){
 
-				document.getElementById("nit").value = usuario[0].nit;
-				document.getElementById("ciudad").value = usuario[0].ciudad;
+				document.getElementById("nit_proveedor").value = usuario[0].nit_proveedor;
+				document.getElementById("ciudad_proveedor").value = usuario[0].ciudad_proveedor;
 				document.getElementById("nombre_proveedor").value = usuario[0].nombre_proveedor;
 				document.getElementById("telefono_proveedor").value = usuario[0].telefono_proveedor;
 				document.getElementById("direccion_proveedor").value = usuario[0].direccion_proveedor;
@@ -183,8 +185,8 @@
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
 				
-				document.getElementById("nit").value = "";
-				document.getElementById("ciudad").value = "";
+				document.getElementById("nit_proveedor").value = "";
+				document.getElementById("ciudad_proveedor").value = "";
 				document.getElementById("nombre_proveedor").value = "";
 				document.getElementById("telefono_proveedor").value = "";
 				document.getElementById("direccion_proveedor").value = "";
