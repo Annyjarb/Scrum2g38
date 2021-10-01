@@ -38,7 +38,7 @@
   </ul>
 </div>
 <div class="dropdown">
-  <a class="nav-link active" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+  <a class="nav-link " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fas fa-address-book"></i> Clientes
   </a>
 
@@ -51,7 +51,7 @@
   </ul>
 </div>
  <div class="dropdown">
-  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+  <a class="nav-link active" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fas fa-truck-loading"></i> Proveedores
   </a>
 
