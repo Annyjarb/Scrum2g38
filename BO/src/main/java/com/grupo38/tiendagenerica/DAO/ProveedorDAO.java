@@ -18,10 +18,10 @@ public class ProveedorDAO {
 			
 			String sentencia = "INSERT INTO proveedores VALUES(" 
 					+ proveedor.getNit_proveedor() + "," + "'"
-					+ proveedor.getDireccion_proveedor() + "'," + "'"
+					+ proveedor.getCiudad_proveedor() + "'," + "'"
+					+ proveedor.getDireccion_proveedor() + "'," + "'" 
 					+ proveedor.getNombre_proveedor() + "'," + "'" 
-					+ proveedor.getTelefono_proveedor() + "'," + "'" 
-					+ proveedor.getCiudad_proveedor() +  "'"
+					+ proveedor.getTelefono_proveedor() +  "'"
 					+ ");";
 			
 			
