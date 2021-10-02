@@ -4,13 +4,13 @@ import java.sql.*;
 
 public class Conexion {
 //paramentos de conexion
-	static String nombre_base_datos="tiendagenerica2";
+	static String nombre_base_datos="g38e2";
 	//root my sql
-	static String usuariobd = "root";
-	static String clavebd="mintic";
+	static String usuariobd = "admin";
+	static String clavebd="minticroca";
 	
 	//quiere decir local host
-	static String url="jdbc:mysql://127.0.0.1/"+ nombre_base_datos;
+	static String url="jdbc:mysql://tiendasgenericasdr-g9-g38-53.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/"+ nombre_base_datos;
 	
 	//objeto sin inicializar
 	
