@@ -128,7 +128,7 @@
 					xhr.open("DELETE",
 							"http://localhost:8080/eliminartodoproducto",true);
 					xhr.send();
-					for (var i = 0; i < arrayLineas.length; i += 1) {
+					for (var i = 0; i < arrayLineas.length; i++) {
 						var arraydatos = arrayLineas[i].split(",");
 						if (arrayLineas[i] == "") {
 							continue;
