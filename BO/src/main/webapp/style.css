@@ -73,6 +73,11 @@ input:invalid:required {
    background-color: rgba(255, 255, 255, 0.6)
   
 }
+.ventasform{background-color: rgba(255, 255, 255, 0.6);
+margin:auto;
+padding:30px;
+	
+}
 .form-titulo{
 	 width: 500px;
   height: 60px;

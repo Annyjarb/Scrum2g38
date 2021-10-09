@@ -1,5 +1,4 @@
-CREATE DATABASE tiendagenerica2;
-use tiendagenerica2;
+use g38e2;
 CREATE TABLE usuarios(
 cedula_usuario BIGINT PRIMARY KEY,
 email_usuario VARCHAR(255) NOT NULL,
@@ -37,4 +36,25 @@ nombre_producto VARCHAR(255) NOT NULL,
 precio_compra DOUBLE NOT NULL,
 precio_venta DOUBLE NOT NULL,
 FOREIGN KEY (nit_proveedor) REFERENCES proveedores(nit_proveedor)
+);
+create table ventas(
+consecutivo BIGINT PRIMARY KEY,
+cedula_cliente BIGINT(20),
+valor_total bigint(20),
+valor_iva bigint(20),
+valor_mas_iva bigint (20),
+
+FOREIGN KEY (cedula_cliente) REFERENCES clientes(cedula_cliente)
+);
+create table detalle_ventas(
+cod_detalle BIGINT PRIMARY KEY,
+codigo_producto BIGINT(20),
+cantidad  int(11),
+precio_venta DOUBLE,
+valor_totalp double,
+consecutivo BIGINT(20),
+
+FOREIGN KEY (codigo_producto) REFERENCES productos(codigo_producto),
+FOREIGN KEY (consecutivo) REFERENCES ventas(consecutivo)
+
 );
