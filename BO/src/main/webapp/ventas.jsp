@@ -18,7 +18,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand links" href="listarusuarios.jsp"><i class="fas fa-shopping-basket"></i> Tiendita Generica del 2</a>
 		</div>
-	</nav>
+	</nav>	
 
 	<!-- Navbar modulos-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,9 +68,9 @@
   
   
   <li onclick="window.location.href=''"class="nav-item" role="presentation">
-    <button class="nav-link" id="Productos" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"> <i class="fas fa-cubes"></i> Productos</button>
-  </li>
-  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+	    <button class="nav-link" id="Productos" d	ata-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"> <i class="fas fa-cubes"></i> Productos</button>
+	  </li>
+  <a class="nav-link active" href="ventas.jsp" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
    <i class="fas fa-money-bill-wave"></i>  Ventas
   </a>
   
@@ -115,6 +115,20 @@
 				<i class="fas fa-search"></i>
 			</button>
 				</div>
+					<div class="input-group mb-3">
+					<span class="input-group-text" id="cc">Usuario</span> <input
+						type="text" class="form-control"
+						placeholder="Inserte nombre usuario aqui..."
+						aria-describedby="basic-addon4" required id="codigosearch"oninput="cons()" ><span class="input-group-text" id="basic-addon1">
+              Usuario</span> 
+              
+             <input
+						type="text" class="form-control  visually-hidden"
+						aria-describedby="basic-addon1" required id="cedula_usuario" disabled="disabled"> <input
+						type="text" class="form-control"
+						aria-describedby="basic-addon1" required id="nombre_usuario" disabled="disabled"><button type="button" class="btn btn-success" onclick="enviaru()">
+				<i class="fas fa-search"></i>
+			</button>
 				
 				
 			</form>
@@ -239,7 +253,39 @@
 		
 	}
 }
-   
+  
+	function enviaru() {
+
+			
+			var req = new XMLHttpRequest();
+			var coincidencia = false;
+			var user=   document.getElementById("codigosearch").value;
+			req.open('GET', 'http://localhost:8080/consultarusuario?usuario='+user, false);
+			req.send(null);
+			var usuario = null;
+			if (req.status == 200)
+				usuario = JSON.parse(req.responseText);
+			console.log(JSON.parse(req.responseText));
+			
+			console.log(usuario.toString());
+			
+		if (usuario.toString()!=""){
+
+			document.getElementById("cedula_usuario").value = usuario[0].cedula_usuario;
+	
+			document.getElementById("nombre_usuario").value = usuario[0].nombre_usuario;
+					
+		
+		
+
+		} else {
+		
+			document.getElementById("cedula_usuario").value = "";
+			document.getElementById("nombre_usuario").value = "";
+				
+		}
+	}
+
 function cons(){
 	var req = new XMLHttpRequest();
 	var coincidencia = false;

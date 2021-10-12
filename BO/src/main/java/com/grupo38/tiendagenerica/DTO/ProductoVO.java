@@ -4,12 +4,17 @@ import java.io.Serializable;
 
 public class ProductoVO implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer codigo_producto;
 	private Double iva_compra;
 	private Integer nit_proveedor;
 	private String nombre_producto;
 	private Double precio_venta;
 	private Double precio_compra;
+	
 	public Integer getCodigo_producto() {
 		return codigo_producto;
 	}

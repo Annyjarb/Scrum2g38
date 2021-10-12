@@ -12,7 +12,14 @@ public class VentaVO implements Serializable {
 	private Integer valor_total;
 	private Integer valor_iva;
 	private Integer valor_mas_iva;
+	private Integer cedula_usuario;
 	
+	public Integer getCedula_usuario() {
+		return cedula_usuario;
+	}
+	public void setCedula_usuario(Integer cedula_usuario) {
+		this.cedula_usuario = cedula_usuario;
+	}
 	public Integer getConsecutivo() {
 		return consecutivo;
 	}
