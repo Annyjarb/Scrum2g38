@@ -86,56 +86,86 @@
 		</div>
 	</nav>
 	
-<section class="form-delete" style ="padding: inherit;">
+<main class="ventasform">
+			
 
-  <h1>
-			 Insertando archivo de productos
-		</h1>
-		<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="card mb-4">
+							<div class="card-header text-white bg-dark">
+								 Carga de archivo de productos
+							</div>
+							<div class="card-body">
+								<div class="container">
+
+									<h1>
+										<i class="far fa-folder-open"></i> Insertando archivo de
+										productos
+									</h1>
+									<div class="container">
 
 
-			<div id="error" class="alert alert-danger visually-hidden"
-				role="alert">Archivo vacio, extensión no valida o datos corruptos (El separador debe ser coma ",")</div>
+										<div id="error" class="alert alert-danger visually-hidden"
+											role="alert">Archivo vacio, extensión no valida o datos
+											corruptos (El separador debe ser coma ",")</div>
 
-			<div id="correcto" class="alert alert-success visually-hidden"
-				role="alert">Productos importados desde CSV con exito</div>
+										<div id="correcto" class="alert alert-success visually-hidden"
+											role="alert">Productos importados desde CSV con exito</div>
+
+										<form id="form1">
+											<div>
+												<label for="formFileLg" class="form-label">Seleccionar
+													archivo CSV con el inventario de productos</label> <input
+													class="form-control form-control-lg" id="archivo"
+													type="file" accept=".csv">
+												<button type="button" class="btn btn-success"
+													onclick="subirArchivo()">Subir archivo</button>
+											</div>
+
+										</form>
+
+									</div>
 
 
 
-			<form id="form1">
-				<div>
-					<label for="formFileLg" class="form-label">Seleccionar
-						archivo CSV con el inventario de productos</label> <input
-						class="form-control form-control-lg" id="archivo" type="file"
-						accept=".csv">
-					<button type="button" class="btn btn-success"
-						onclick="subirArchivo()">Subir archivo</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-
-			</form>
-			</div>
+			
+		</main>
 	
-	<script>
+		<script>
 		function subirArchivo() {
+
 			try {
+
 				var csvFile = document.getElementById("archivo");
+
 				var input = csvFile.files[0];
 				var reader = new FileReader();
+				var xhr = new XMLHttpRequest();
+				xhr.open("DELETE",
+						"http://localhost:8080/eliminartodoproducto", true);
+				xhr.send();
 				reader.onload = function(e) {
+
 					var text = e.target.result;
+
 					var arrayLineas = text.split("\n");
-					var xhr = new XMLHttpRequest();
-					xhr.open("DELETE",
-							"http://localhost:8080/eliminartodoproducto",true);
-					xhr.send();
-					for (var i = 0; i < arrayLineas.length; i++) {
+
+					for (var i = 0; i < arrayLineas.length; i += 1) {
 						var arraydatos = arrayLineas[i].split(",");
+
 						if (arrayLineas[i] == "") {
 							continue;
 						}
+
 						for (var j = 0; j < arraydatos.length; j += 1) {
 							console.log(i + " " + j + "->" + arraydatos[j]);
 						}
+
 						var formData = new FormData();
 						formData.append("codigo_producto", arraydatos[0]);
 						formData.append("nombre_producto", arraydatos[1]);
@@ -143,27 +173,36 @@
 						formData.append("precio_compra", arraydatos[3]);
 						formData.append("iva_compra", arraydatos[4]);
 						formData.append("precio_venta", arraydatos[5]);
+						
 						var xhr = new XMLHttpRequest();
 						xhr.open("POST",
 								"http://localhost:8080/registrarproducto");
+
 						xhr.send(formData);
 					}
+
 					var element = document.getElementById("error");
 					element.classList.add("visually-hidden");
 					var element2 = document.getElementById("correcto");
 					element2.classList.remove("visually-hidden");
+
 					document.getElementById("archivo").value = "";
+
 				};
+
 				reader.readAsText(input);
 			} catch (error) {
 				var element = document.getElementById("error");
 				element.classList.remove("visually-hidden");
 				var element2 = document.getElementById("correcto");
 				element2.classList.add("visually-hidden");
+
 				document.getElementById("archivo").value = "";
 			}
 		}
 	</script>
+</html>
+
 
 	<footer>Tiendida la Generica del 2  | 2021
   

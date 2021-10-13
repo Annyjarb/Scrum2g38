@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -57,11 +57,11 @@
   </a>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" href="#"><i class="fas fa-list"></i> Lista de Proveedores</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-search"></i> Buscar Proveedor</a></li>
+    <li><a class="dropdown-item" href="listarproveedores.jsp"><i class="fas fa-list"></i> Lista de Proveedores</a></li>
+    <li><a class="dropdown-item" href="insertarproveedor.jsp"><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
+    <li><a class="dropdown-item" href="eliminarproveedor.jsp"><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
+    <li><a class="dropdown-item" href="actualizarproveedor.jsp"><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
+    <li><a class="dropdown-item" href="consultarproveedor.jsp"><i class="fas fa-search"></i> Buscar Proveedor</a></li>
   </ul>
 </div>
 
@@ -75,7 +75,7 @@
   </a>
   
   <li class="nav-item" role="presentation">
-    <button onclick="window.location.href=''"class="nav-link" id="reportes" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-book"></i> Reportes </button>
+    <button onclick="window.location.href='reportes.jsp'"class="nav-link" id="reportes" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-book"></i> Reportes </button>
   </li>
 </ul>
 
@@ -98,7 +98,7 @@
 
 			<form id="form1">
 			
-				<div class="input-group mb-3">
+				<div class="input-group mb-2">
 					<span class="input-group-text" id="cc">Cedula</span> <input
 						type="text" class="form-control"
 						placeholder="Inserte cc aqui..."

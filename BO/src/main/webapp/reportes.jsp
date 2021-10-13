@@ -50,7 +50,9 @@
 		element.classList.add("visually-hidden");
 		var element = document.getElementById("titulov");
 		element.classList.remove("visually-hidden");
+		
 		var xmlhttp = new XMLHttpRequest();
+		
 		xmlhttp.open("GET", baseurl2, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -60,7 +62,7 @@
 				for (i = 0; i < usuarios.length; i++) {
 					main += "<tr><td>" + usuarios[i].cedula_cliente
 							+ "</td><td>" + usuarios[i].nombre_cliente
-							+ "</td><td>" + usuarios[i].valor_mas_iva+ "</td><td>";
+							+ "</td><td>" + usuarios[i].valor_mas_iva;
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
@@ -73,6 +75,12 @@
 		loadusuarios();
 	}
 	function cliente() {
+		var element = document.getElementById("titulo");
+		element.classList.add("visually-hidden");
+		var element = document.getElementById("tituloc");
+		element.classList.remove("visually-hidden");
+		var element = document.getElementById("titulov");
+		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", baseurl1, true);
 		xmlhttp.onreadystatechange = function() {
@@ -145,17 +153,17 @@
   </a>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" href="#"><i class="fas fa-list"></i> Lista de Proveedores</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
-    <li><a class="dropdown-item" href="#"><i class="fas fa-search"></i> Buscar Proveedor</a></li>
+     <li><a class="dropdown-item" href="listarproveedores.jsp"><i class="fas fa-list"></i> Lista de Proveedores</a></li>
+    <li><a class="dropdown-item" href="insertarproveedor.jsp"><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
+    <li><a class="dropdown-item" href="eliminarproveedor.jsp"><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
+    <li><a class="dropdown-item" href="actualizarproveedor.jsp"><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
+    <li><a class="dropdown-item" href="consultarproveedor.jsp"><i class="fas fa-search"></i> Buscar Proveedor</a></li>
   </ul>
 </div>
 
 
   
-  <li onclick="window.location.href=''"class="nav-item" role="presentation">
+  <li onclick="window.location.href='productos.jsp'"class="nav-item" role="presentation">
     <button class="nav-link" id="Productos" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"> <i class="fas fa-cubes"></i> Productos</button>
   </li>
   <a class="nav-link" href="ventas.jsp" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -179,9 +187,10 @@
 </div>
 
 		<h1 id="titulo" class="visually-hidden form-titulo">Listado Usuarios</h1>
-		<h1 id="tituloc" class="visually-hidden form-titulo">Lsitado Clientes</h1>
-		<h1 id="titulov" class="visually-hidden form-titulo"> en construccion</h1>
-	
+		<h1 id="tituloc" class="visually-hidden form-titulo">Listado Clientes</h1>
+		
+		<h1  id="titulov"class="form-titulo visually-hidden"> Ventas Cliente</h1>
+	  
 			<div class="container">
 				<div class="row">
 					<!--  Aqui es donde se autogenera la tabla basado en el script -->
@@ -191,6 +200,7 @@
 	
 				</div>
 			</div>
+			
 	<footer>Tiendida la Generica del 2  | 2021
   
 </footer>

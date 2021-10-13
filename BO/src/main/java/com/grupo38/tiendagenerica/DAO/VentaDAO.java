@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.grupo38.tiendagenerica.DTO.ClienteVO;
 import com.grupo38.tiendagenerica.DTO.UsuarioVO;
 import com.grupo38.tiendagenerica.DTO.VentaVO;
 
@@ -55,6 +56,47 @@ public class VentaDAO {
 		}
 		return listaconsecutivo;
 	}
+	public ArrayList<VentaVO> resumenVenta(){
+		ArrayList<VentaVO>listaventas=new ArrayList<VentaVO>();
+		Conexion conex =new Conexion();
+		try {PreparedStatement consulta= conex.getConnection()
+			
+				 
+				.prepareStatement("select *from clientes inner join ventas on clientes.cedula_cliente = ventas.cedula_cliente");
+		
+		ResultSet res= consulta.executeQuery();
+		while (res.next()) {
+			VentaVO Usuario =new VentaVO();
+			
+			Usuario.setCedula_cliente(Integer.parseInt(res.getString("cedula_cliente")));
+			Usuario.setConsecutivo(Integer.parseInt(res.getString("consecutivo")));
+			Usuario.setCedula_usuario(Integer.parseInt(res.getString("cedula_usuario")));
+			Usuario.setValor_total(Integer.parseInt(res.getString("valor_total")));
+			Usuario.setValor_iva(Integer.parseInt(res.getString("valor_iva")));
+			Usuario.setValor_mas_iva(Integer.parseInt(res.getString("valor_mas_iva")));
+		
+			ClienteVO cliente =new ClienteVO();
+			listaventas.add(Usuario);	
+		}
+		
+		
+	
+		res.close();
+		consulta.close();
+		conex.desconectar();
+	}catch (SQLException e) {
+		System.out.println("--------ERROR--------");
+		System.out.println("No se puede consultar el usuario");
+		System.out.println(e.getMessage());
+		System.out.println(e.getErrorCode());
+	}catch (Exception e) {
+		System.out.println("----------ERROR-------------");
+		System.out.println("No se pudo consultar el usuario");
+		System.out.println(e.getMessage());
+		System.out.println(e.getLocalizedMessage());
+	}
+		return listaventas;
+}
 	public ArrayList<VentaVO> listaVentas(){
 		ArrayList<VentaVO>listaventas=new ArrayList<VentaVO>();
 		Conexion conex =new Conexion();
