@@ -21,4 +21,9 @@ public class VentaController {
 		VentaDAO Dao = new VentaDAO();
 		return Dao.listaVentas();
 	}
+	@GetMapping("/resumenventa")
+	public ArrayList<VentaVO> resumenVenta() {
+		VentaDAO Dao = new VentaDAO();
+		return Dao.resumenVenta();
+	}
 }

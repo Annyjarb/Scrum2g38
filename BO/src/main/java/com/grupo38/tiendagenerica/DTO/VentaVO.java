@@ -2,7 +2,7 @@ package com.grupo38.tiendagenerica.DTO;
 
 import java.io.Serializable;
 
-public class VentaVO implements Serializable {
+public class VentaVO extends ClienteVO implements Serializable {
 	/**
 	 * 
 	 */

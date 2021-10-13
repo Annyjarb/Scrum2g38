@@ -56,8 +56,9 @@ public class VentaDAO {
 		}
 		return listaconsecutivo;
 	}
+	
 	public ArrayList<VentaVO> resumenVenta(){
-		ArrayList<VentaVO>listaventas=new ArrayList<VentaVO>();
+		ArrayList<VentaVO>listaventa=new ArrayList<VentaVO>();
 		Conexion conex =new Conexion();
 		try {PreparedStatement consulta= conex.getConnection()
 			
@@ -74,9 +75,12 @@ public class VentaDAO {
 			Usuario.setValor_total(Integer.parseInt(res.getString("valor_total")));
 			Usuario.setValor_iva(Integer.parseInt(res.getString("valor_iva")));
 			Usuario.setValor_mas_iva(Integer.parseInt(res.getString("valor_mas_iva")));
-		
-			ClienteVO cliente =new ClienteVO();
-			listaventas.add(Usuario);	
+			Usuario.setNombre_cliente(res.getString("nombre_cliente"));
+			Usuario.setDireccion_cliente(res.getString("direccion_cliente"));
+			Usuario.setTelefono_cliente(res.getString("telefono_cliente"));
+			Usuario.setCorreo_cliente(res.getString("correo_cliente"));
+			
+			listaventa.add(Usuario);	
 		}
 		
 		
@@ -95,7 +99,7 @@ public class VentaDAO {
 		System.out.println(e.getMessage());
 		System.out.println(e.getLocalizedMessage());
 	}
-		return listaventas;
+		return listaventa;
 }
 	public ArrayList<VentaVO> listaVentas(){
 		ArrayList<VentaVO>listaventas=new ArrayList<VentaVO>();
