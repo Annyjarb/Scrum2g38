@@ -44,4 +44,10 @@ public class VentaController {
 		System.out.println(detalle.getValorIva());
 		Dao.registrarVentasDetalle(detalle);
 	}
+	
+	@GetMapping("/total")
+	public String totalVenta() {
+		VentaDAO Dao = new VentaDAO();
+		return Dao.totalVentas();
+	}
 }

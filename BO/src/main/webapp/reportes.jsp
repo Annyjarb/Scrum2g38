@@ -90,7 +90,7 @@
 					total += parseFloat(celdasPrecio[i].firstChild.data);
 					
 				}
-				document.getElementById("totalventas").value = total;
+				getTotal();
 
 			}
 		};
@@ -131,6 +131,30 @@
 	};
 	window.onload = function() {
 		loadusuarios();
+	}
+	
+	function getTotal() {
+
+		var req = new XMLHttpRequest();
+
+
+		req.open('GET',baseUrl+
+				'/total', false);
+
+		req.send(null);
+		var usuario = null;
+		if (req.status == 200)
+			usuario = JSON.parse(req.responseText);
+		console.log(JSON.parse(req.responseText));
+		console.log(usuario.toString());
+
+		if (usuario.toString() != "") {
+			document.getElementById("totalventas").value = usuario[0].TOTAL;
+		} else {
+
+			document.getElementById("totalventas").value ="";
+
+		}
 	}
 </script>
 </head>

@@ -254,7 +254,6 @@
 					</form>
 				</div>
 				<script>
-					var baseurl = "http://localhost:8080/consultarconsecutivo";
 					var getUrl = window.location;
 					var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 					function enviar() {
@@ -630,6 +629,7 @@
 
 						xhr.send(detalleFormData);
 					}
+					
 				</script>
 
 			</div>
