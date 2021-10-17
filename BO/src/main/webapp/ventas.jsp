@@ -562,6 +562,7 @@
 											document.getElementById("vt".concat(i)).value);
 								}
 							}
+							location.reload();
 							
 							
 						} else {
@@ -570,11 +571,6 @@
 							var element2 = document.getElementById("correcto");
 							element2.classList.add("visually-hidden");
 
-							document.getElementById("cc").value = "";
-							document.getElementById("correo").value = "";
-							document.getElementById("nombre").value = "";
-							document.getElementById("direccion").value = "";
-							document.getElementById("telefono").value = "";
 						}
 
 					}
