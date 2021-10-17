@@ -35,7 +35,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl + "/listarusuarios", true);
+		xmlhttp.open("GET", baseUrl + "/listarusuarios", true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);

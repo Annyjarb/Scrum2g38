@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.grupo38.tiendagenerica</groupId>
 	<artifactId>TiendaGenerica</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.6</version>
 	<packaging>war</packaging>
 	<name>Tienda Generica equipo2</name>
 	<description>proyecto de entrenamiento en programacion web con java y spring </description>

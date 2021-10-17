@@ -46,7 +46,7 @@ public class VentaController {
 	}
 	
 	@GetMapping("/total")
-	public String totalVenta() {
+	public String totalVentas() {
 		VentaDAO Dao = new VentaDAO();
 		return Dao.totalVentas();
 	}
