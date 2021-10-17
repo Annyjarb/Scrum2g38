@@ -9,7 +9,7 @@ private Integer cedula_cliente;
 private String direccion_cliente;
 private String nombre_cliente;
 private String telefono_cliente;
-private  String correo_cliente;
+private String correo_cliente;
 
 public Integer getCedula_cliente() {
 	return cedula_cliente;
@@ -40,9 +40,6 @@ public String getCorreo_cliente() {
 }
 public void setCorreo_cliente(String correo_cliente) {
 	this.correo_cliente = correo_cliente;
-}
-public static long getSerialversionuid() {
-	return serialVersionUID;
 }
 
 }
