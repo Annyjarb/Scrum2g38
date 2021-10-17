@@ -546,7 +546,7 @@
 
 							ventasFormData.append("codigo_venta", document
 									.getElementById("consecutivo").value);
-							ventasFormData.append("ivaventa", document
+							ventasFormData.append("ivaVenta", document
 									.getElementById("iva").value);
 							ventasFormData.append("total_venta", document
 									.getElementById("viva").value);
@@ -558,7 +558,7 @@
 							
 							for(var i = 1 ; i < 4; i++){
 								var cod1 = document.getElementById("cod".concat(i)).value;
-								console.log("cod1",cod1)
+								console.log("cod1",i)
 								if (cod1 !== ""){
 									saveRegistros(document.getElementById("cant".concat(i)).value, document.getElementById("cod".concat(i)).value,
 											document.getElementById("ccsearch").value, document.getElementById("cedula_usuario").value, 
@@ -566,6 +566,7 @@
 											document.getElementById("vt".concat(i)).value);
 								}
 							}
+							alert(" Se almaceno con exito");
 							location.reload();
 							
 							
@@ -620,7 +621,7 @@
 						var total = vVenta + iva;
 						detalleFormData.append("valor_total", total);
 						detalleFormData.append("valor_venta", vVenta);
-						detalleFormData.append("valoriva", iva);
+						detalleFormData.append("valorIva", iva);
 						
 						var xhr = new XMLHttpRequest();
 					console.log("detalleFormData", detalleFormData)
@@ -630,8 +631,6 @@
 						element.classList.add("visually-hidden");
 						var element2 = document.getElementById("correcto");
 						element2.classList.remove("visually-hidden");
-						xhr.send(detalleFormData);
-
 						xhr.send(detalleFormData);
 					}
 					
