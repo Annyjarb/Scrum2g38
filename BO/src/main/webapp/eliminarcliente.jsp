@@ -125,7 +125,11 @@
 			<script>
 		function eliminar() {
 			var getUrl = window.location;
-			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+			if( getUrl.host === 'localhost:8080'){
+				var baseUrl = getUrl.protocol + "//" + getUrl.host;
+			}else{
+				var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+			}
 			var y = document.getElementById("cedula_cliente").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;

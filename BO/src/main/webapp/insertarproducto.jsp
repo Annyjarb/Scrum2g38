@@ -141,9 +141,13 @@
 		</main>
 	
 		<script>
-		function subirArchivo() {
-			var getUrl = window.location;
+		var getUrl = window.location;
+		if( getUrl.host === 'localhost:8080'){
+			var baseUrl = getUrl.protocol + "//" + getUrl.host;
+		}else{
 			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		}
+		function subirArchivo() {
 			try {
 				
 				var csvFile = document.getElementById("archivo");

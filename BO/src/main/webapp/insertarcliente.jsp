@@ -121,9 +121,14 @@
 
 	
 <script>
+var getUrl = window.location;
+if( getUrl.host === 'localhost:8080'){
+	var baseUrl = getUrl.protocol + "//" + getUrl.host;
+}else{
+	var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+}
 		function enviar() {
-			var getUrl = window.location;
-			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+			
 			var x = document.getElementById("nombre").value;
 			var y = document.getElementById("cc").value;
 			var req = new XMLHttpRequest();

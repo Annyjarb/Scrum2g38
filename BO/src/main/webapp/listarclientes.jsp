@@ -14,7 +14,11 @@
    <script>
    
 	var getUrl = window.location;
-	var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	if( getUrl.host === 'localhost:8080'){
+		var baseUrl = getUrl.protocol + "//" + getUrl.host;
+	}else{
+		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+	}
 	
 	function loadusuarios() {
 		var xmlhttp = new XMLHttpRequest();
