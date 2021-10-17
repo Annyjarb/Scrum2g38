@@ -69,7 +69,7 @@
 		element.classList.remove("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
 
-		xmlhttp.open("GET", baseUrl+baseurl2, true);
+		xmlhttp.open("GET", baseUrl + baseurl2, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
@@ -111,7 +111,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseUrl+baseurl1, true);
+		xmlhttp.open("GET", baseUrl + baseurl1, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
@@ -140,7 +140,7 @@
 		var req = new XMLHttpRequest();
 
 
-		req.open('GET',baseUrl+
+		req.open('GET',baseUrl +
 				'/total', false);
 
 		req.send(null);
