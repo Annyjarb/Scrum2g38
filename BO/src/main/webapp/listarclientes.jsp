@@ -29,7 +29,7 @@
 							+ "</td><td>" + usuarios[i].correo_cliente
 							+ "</td><td>" + usuarios[i].nombre_cliente
 							+ "</td><td>" + usuarios[i].direccion_cliente+"</td><td>"
-							+ usuarios[i].telefono_cliente + "</td><td>";
+							+ usuarios[i].telefono_cliente;
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;

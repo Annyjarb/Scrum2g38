@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.grupo38.tiendagenerica.BO.TiendaGenericaEquipo2ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.134 s - in com.grupo38.tiendagenerica.BO.TiendaGenericaEquipo2ApplicationTests

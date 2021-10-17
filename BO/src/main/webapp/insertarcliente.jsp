@@ -122,6 +122,8 @@
 	
 <script>
 		function enviar() {
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 			var x = document.getElementById("nombre").value;
 			var y = document.getElementById("cc").value;
 			var req = new XMLHttpRequest();

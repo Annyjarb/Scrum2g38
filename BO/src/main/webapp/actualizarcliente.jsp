@@ -199,7 +199,7 @@
 				formData.append("direccion_cliente",
 						document.getElementById("direccion_cliente").value);
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", baseUrl + "actualizarcliente");
+				xhr.open("PUT", baseUrl + "/actualizarcliente");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");

@@ -142,18 +142,21 @@
 	
 		<script>
 		function subirArchivo() {
-
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 			try {
-				var getUrl = window.location;
-				var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+				
 				var csvFile = document.getElementById("archivo");
 
 				var input = csvFile.files[0];
 				var reader = new FileReader();
+				
 				var xhr = new XMLHttpRequest();
+				
 				xhr.open("DELETE",baseUrl+
-						"/eliminartodoproducto", true);
+						"//eliminartodoproducto", true);
 				xhr.send();
+				
 				reader.onload = function(e) {
 
 					var text = e.target.result;

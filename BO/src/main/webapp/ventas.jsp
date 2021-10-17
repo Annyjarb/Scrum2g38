@@ -261,7 +261,7 @@
 						var coincidencia = false;
 						var user = document.getElementById("ccsearch").value;
 						req.open('GET', baseUrl+
-								'consultarcliente?cliente='
+								'/consultarcliente?cliente='
 										+ user, false);
 						req.send(null);
 						var usuario = null;
@@ -547,8 +547,7 @@
 							ventasFormData.append("valor_venta", document
 									.getElementById("vv").value);
 							var xhr = new XMLHttpRequest();
-							xhr.open("POST",
-									'http://localhost:8080/registrarventa');
+							xhr.open("POST",baseUrl+"/registrarventa");
 							xhr.send(ventasFormData);
 							
 							for(var i = 1 ; i < 4; i++){
