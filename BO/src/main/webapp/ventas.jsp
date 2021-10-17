@@ -348,11 +348,11 @@
 
 						} else {
 
-							document.getElementById("consecutivo").value = "0";
+							document.getElementById("consecutivo").value = "1";
 
 						}
 						var xmlhttp = new XMLHttpRequest();
-						xmlhttp.open("GET", baseUrl + baseurl, true);
+						xmlhttp.open("GET", baseUrl + "/consultarconsecutivo", true);
 						xmlhttp.send(null);
 						var cons = null;
 

@@ -23,8 +23,6 @@
 	}else{
 		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 	}
-
-	var baseurl0 = "/listarusuarios";
 	var baseurl1 = "/listarclientes";
 	var baseurl2 = "/resumenventa";
 	function usuario() {
@@ -37,7 +35,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl+baseUrl0, true);
+		xmlhttp.open("GET", baseurl + "/listarusuarios", true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
