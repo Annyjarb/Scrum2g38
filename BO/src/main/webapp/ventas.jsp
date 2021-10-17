@@ -255,12 +255,14 @@
 				</div>
 				<script>
 					var baseurl = "http://localhost:8080/consultarconsecutivo";
+					var getUrl = window.location;
+					var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 					function enviar() {
 						var req = new XMLHttpRequest();
 						var coincidencia = false;
 						var user = document.getElementById("ccsearch").value;
-						req.open('GET',
-								'http://localhost:8080/consultarcliente?cliente='
+						req.open('GET', baseUrl+
+								'consultarcliente?cliente='
 										+ user, false);
 						req.send(null);
 						var usuario = null;
@@ -296,7 +298,7 @@
 						var coincidencia = false;
 						var user = document.getElementById("codigosearch").value;
 						req.open('GET',
-								'http://localhost:8080/consultarusuario?usuario='
+								baseUrl+'/consultarusuario?usuario='
 										+ user, false);
 						req.send(null);
 						var usuario = null;
@@ -323,8 +325,8 @@
 					function cons() {
 						var req = new XMLHttpRequest();
 						var coincidencia = false;
-						req.open("GET",
-								"http://localhost:8080/consultarconsecutivo",
+						req.open("GET",baseUrl+
+								"/consultarconsecutivo",
 								false);
 						req.send(null);
 						var usuario = null;
@@ -345,7 +347,7 @@
 
 						}
 						var xmlhttp = new XMLHttpRequest();
-						xmlhttp.open("GET", baseurl, true);
+						xmlhttp.open("GET", baseUrl + baseurl, true);
 						xmlhttp.send(null);
 						var cons = null;
 
@@ -362,8 +364,8 @@
 						var coincidencia = false;
 						var code = document.getElementById("cod1").value;
 
-						req.open('GET',
-								'http://localhost:8080/consultarproducto?code='
+						req.open('GET',baseUrl+
+								'/consultarproducto?code='
 										+ code, false);
 
 						req.send(null);
@@ -393,8 +395,8 @@
 						var coincidencia = false;
 						var code = document.getElementById("cod2").value;
 
-						req.open('GET',
-								'http://localhost:8080/consultarproducto?code='
+						req.open('GET',baseUrl+
+								'/consultarproducto?code='
 										+ code, false);
 
 						req.send(null);
@@ -422,8 +424,8 @@
 						var coincidencia = false;
 						var code = document.getElementById("cod3").value;
 
-						req.open('GET',
-								'http://localhost:8080/consultarproducto?code='
+						req.open('GET',baseUrl+
+								'/consultarproducto?code='
 										+ code, false);
 
 						req.send(null);
@@ -484,7 +486,7 @@
 						var x = document.getElementById("consecutivo").value;
 						var req = new XMLHttpRequest();
 						var coincidencia = false;
-						req.open('GET', 'http://localhost:8080/consultarventa',
+						req.open('GET', baseUrl+'/consultarventa',
 								false);
 						req.send(null);
 						var usuarios = null;
@@ -622,8 +624,8 @@
 						
 						var xhr = new XMLHttpRequest();
 					console.log("detalleFormData", detalleFormData)
-						xhr.open("POST",
-								'http://localhost:8080/registrarventadetalle');
+						xhr.open("POST",baseUrl+
+								'/registrarventadetalle');
 						var element = document.getElementById("error");
 						element.classList.add("visually-hidden");
 						var element2 = document.getElementById("correcto");

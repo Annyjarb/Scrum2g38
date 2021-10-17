@@ -16,7 +16,7 @@
     <!-- Navbar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand links" href="listarusuarios.jsp"><i class="fas fa-shopping-basket"></i> Tiendita Generica del 2</a>
+			<a class="navbar-brand links" href=<%=request.getContextPath()%>/listarusuarios.jsp><i class="fas fa-shopping-basket"></i> Tiendita Generica del 2</a>
 		</div>
 	</nav>
 
@@ -150,11 +150,14 @@
 	</div>
 <script>
 		function actualizar() {
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+			
 			var x = document.getElementById("nit_proveedor").value;
 			var y = document.getElementById("nombre_proveedor").value;
 			var req = new XMLHttpRequest();
 			var coincidencia = false;
-			req.open('GET', 'http://localhost:8080/listarproveedor', false);
+			req.open('GET', baseUrl + '/listarproveedor', false);
 			req.send(null);
 			var proveedores = null;
 			if (req.status == 200)
@@ -197,7 +200,7 @@
 						document.getElementById("direccion_proveedor").value);
 				
 				var xhr = new XMLHttpRequest();
-				xhr.open("PUT", "http://localhost:8080/actualizarproveedor");
+				xhr.open("PUT", baseUrl + "/actualizarproveedor");
 
 				var element = document.getElementById("error");
 				element.classList.add("visually-hidden");

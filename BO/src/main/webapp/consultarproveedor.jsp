@@ -16,7 +16,7 @@
     <!-- Navbar-->
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand links" href="listarusuarios.jsp"><i class="fas fa-shopping-basket"></i> Tiendita Generica del 2</a>
+			<a class="navbar-brand links" href=<%=request.getContextPath()%>/listarusuarios.jsp><i class="fas fa-shopping-basket"></i> Tiendita Generica del 2</a>
 		</div>
 	</nav>
 
@@ -155,12 +155,13 @@
 </div>
 <script>
 		function enviar() {
-
+			var getUrl = window.location;
+			var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 				
 				var req = new XMLHttpRequest();
 				var coincidencia = false;
 				var user=   document.getElementById("usersearch").value;
-				req.open('GET', 'http://localhost:8080/consultarproveedor?proveedor='+user, false);
+				req.open('GET', baseUrl +'/consultarproveedor?proveedor='+user, false);
 				req.send(null);
 				var usuario = null;
 				if (req.status == 200)

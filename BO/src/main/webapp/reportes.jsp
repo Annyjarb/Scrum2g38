@@ -17,9 +17,12 @@
 <script src="https://kit.fontawesome.com/8e9e769e03.js"
 	crossorigin="anonymous"></script>
 <script>
-	var baseurl = "http://localhost:8080/listarusuarios";
-	var baseurl1 = "http://localhost:8080/listarclientes";
-	var baseurl2 = "http://localhost:8080/resumenventa";
+	var getUrl = window.location;
+	var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+
+	var baseurl0 = "/listarusuarios";
+	var baseurl1 = "/listarclientes";
+	var baseurl2 = "/resumenventa";
 	function usuario() {
 		var element = document.getElementById("titulo");
 		element.classList.remove("visually-hidden");
@@ -30,7 +33,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.open("GET", baseurl+baseUrl0, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
@@ -64,7 +67,7 @@
 		element.classList.remove("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
 
-		xmlhttp.open("GET", baseurl2, true);
+		xmlhttp.open("GET", baseUrl+baseurl2, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
@@ -106,7 +109,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl1, true);
+		xmlhttp.open("GET", baseUrl+baseurl1, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
