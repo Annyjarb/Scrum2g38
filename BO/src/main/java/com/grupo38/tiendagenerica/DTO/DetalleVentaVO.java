@@ -3,53 +3,64 @@ package com.grupo38.tiendagenerica.DTO;
 import java.io.Serializable;
 
 public class DetalleVentaVO implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private Integer cod_detalle;
-	private Integer codigo_producto ;
-	private Integer cantidad;
-	private Integer precio_venta;
-	private Integer valor_totalp;
-	private Integer consecutivo;
 	
-	public Integer getCod_detalle() {
-		return cod_detalle;
+	private Integer cod_detalle_venta;
+	private int cantidad_producto;
+	private int codigo_producto ;
+	private VentaVO codigo_venta;
+	private double valor_total;
+	private double valor_venta;
+	private double valorIva;
+	
+	
+	public Integer getCod_detalle_venta() {
+		return cod_detalle_venta;
 	}
-	public void setCod_detalle(Integer cod_detalle) {
-		this.cod_detalle = cod_detalle;
+	public void setCod_detalle_venta(Integer cod_detalle_venta) {
+		this.cod_detalle_venta = cod_detalle_venta;
 	}
-	public Integer getCodigo_producto() {
+	public int getCantidad_producto() {
+		return cantidad_producto;
+	}
+	public void setCantidad_producto(int cantidad_producto) {
+		this.cantidad_producto = cantidad_producto;
+	}
+	public int getCodigo_producto() {
 		return codigo_producto;
 	}
-	public void setCodigo_producto(Integer codigo_producto) {
+	public void setCodigo_producto(int codigo_producto) {
 		this.codigo_producto = codigo_producto;
 	}
-	public Integer getCantidad() {
-		return cantidad;
+	
+	public VentaVO getCodigo_venta() {
+		return codigo_venta;
 	}
-	public void setCantidad(Integer cantidad) {
-		this.cantidad = cantidad;
+	public void setCodigo_venta(VentaVO codigo_venta) {
+		this.codigo_venta = codigo_venta;
 	}
-	public Integer getPrecio_venta() {
-		return precio_venta;
+	public double getValor_total() {
+		return valor_total;
 	}
-	public void setPrecio_venta(Integer precio_venta) {
-		this.precio_venta = precio_venta;
+	public void setValor_total(double valor_total) {
+		this.valor_total = valor_total;
 	}
-	public Integer getValor_totalp() {
-		return valor_totalp;
+	public double getValor_venta() {
+		return valor_venta;
 	}
-	public void setValor_totalp(Integer valor_totalp) {
-		this.valor_totalp = valor_totalp;
+	public void setValor_venta(double valor_venta) {
+		this.valor_venta = valor_venta;
 	}
-	public Integer getConsecutivo() {
-		return consecutivo;
+	public double getValorIva() {
+		return valorIva;
 	}
-	public void setConsecutivo(Integer consecutivo) {
-		this.consecutivo = consecutivo;
+	public void setValorIva(double valorIva) {
+		this.valorIva = valorIva;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
+
 
 }

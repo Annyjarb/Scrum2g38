@@ -71,13 +71,21 @@
     <li><a class="dropdown-item" href="insertarproducto.jsp"><i class="fas fa-list"></i> Carga productos</a></li>
   </ul>
   </div>
-  <li class="nav-item" role="presentation">
-    <button onclick="window.location.href=''"class="nav-link" id="ventas" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"> <i class="fas fa-money-bill-wave"></i> Ventas </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button onclick="window.location.href=''"class="nav-link" id="reportes" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-book"></i> Reportes </button>
-  </li>
-</ul>
+  <div class="dropdown">
+  <a class="nav-link " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-truck-loading"></i> Ventas
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="ventas.jsp"><i class="fas fa-list"></i> Diligenciar venta</a></li>
+  </ul>
+ </div>
+<div class="dropdown">
+  <a class="nav-link " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-truck-loading"></i>Reportes</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="reportes.jsp"><i class="fas fa-list"></i> mostrar reportes</a></li>
+  </ul>
+ </div>
 
 		
 		</div>

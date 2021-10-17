@@ -9,7 +9,7 @@ private Integer cedula_cliente;
 private String direccion_cliente;
 private String nombre_cliente;
 private String telefono_cliente;
-private  String correo_cliente;
+private String correo_cliente;
 
 public Integer getCedula_cliente() {
 	return cedula_cliente;
