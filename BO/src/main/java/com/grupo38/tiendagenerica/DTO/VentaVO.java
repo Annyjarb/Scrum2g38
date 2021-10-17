@@ -2,53 +2,56 @@ package com.grupo38.tiendagenerica.DTO;
 
 import java.io.Serializable;
 
-public class VentaVO extends ClienteVO implements Serializable {
-	/**
-	 * 
-	 */
+public class VentaVO  implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Integer consecutivo;
-	private Integer cedula_cliente;
-	private Integer valor_total;
-	private Integer valor_iva;
-	private Integer valor_mas_iva;
-	private Integer cedula_usuario;
 	
-	public Integer getCedula_usuario() {
-		return cedula_usuario;
+	private Integer codigo_venta;
+	private ClienteVO cedula_cliente;
+	private UsuarioVO cedula_usuario;
+	private double ivaVenta;
+	private double total_venta;
+	private double valor_venta;
+	
+	public Integer getCodigo_venta() {
+		return codigo_venta;
 	}
-	public void setCedula_usuario(Integer cedula_usuario) {
-		this.cedula_usuario = cedula_usuario;
+	public void setCodigo_venta(Integer codigo_venta) {
+		this.codigo_venta = codigo_venta;
 	}
-	public Integer getConsecutivo() {
-		return consecutivo;
-	}
-	public void setConsecutivo(Integer consecutivo) {
-		this.consecutivo = consecutivo;
-	}
-	public Integer getCedula_cliente() {
+	
+	public ClienteVO getCedula_cliente() {
 		return cedula_cliente;
 	}
-	public void setCedula_cliente(Integer cedula_cliente) {
+	public void setCedula_cliente(ClienteVO cedula_cliente) {
 		this.cedula_cliente = cedula_cliente;
 	}
-	public Integer getValor_total() {
-		return valor_total;
+
+	public UsuarioVO getCedula_usuario() {
+		return cedula_usuario;
 	}
-	public void setValor_total(Integer valor_total) {
-		this.valor_total = valor_total;
+	public void setCedula_usuario(UsuarioVO cedula_usuario) {
+		this.cedula_usuario = cedula_usuario;
 	}
-	public Integer getValor_iva() {
-		return valor_iva;
+	public double getIvaVenta() {
+		return ivaVenta;
 	}
-	public void setValor_iva(Integer valor_iva) {
-		this.valor_iva = valor_iva;
+	public void setIvaVenta(double ivaVenta) {
+		this.ivaVenta = ivaVenta;
 	}
-	public Integer getValor_mas_iva() {
-		return valor_mas_iva;
+	public double getTotal_venta() {
+		return total_venta;
 	}
-	public void setValor_mas_iva(Integer valor_mas_iva) {
-		this.valor_mas_iva = valor_mas_iva;
-	} 
+	public void setTotal_venta(double total_venta) {
+		this.total_venta = total_venta;
+	}
+	public double getValor_venta() {
+		return valor_venta;
+	}
+	public void setValor_venta(double valor_venta) {
+		this.valor_venta = valor_venta;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }

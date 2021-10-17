@@ -17,9 +17,12 @@
 <script src="https://kit.fontawesome.com/8e9e769e03.js"
 	crossorigin="anonymous"></script>
 <script>
-	var baseurl = "http://localhost:8080/listarusuarios";
-	var baseurl1 = "http://localhost:8080/listarclientes";
-	var baseurl2 = "http://localhost:8080/resumenventa";
+	var getUrl = window.location;
+	var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+
+	var baseurl0 = "/listarusuarios";
+	var baseurl1 = "/listarclientes";
+	var baseurl2 = "/resumenventa";
 	function usuario() {
 		var element = document.getElementById("titulo");
 		element.classList.remove("visually-hidden");
@@ -30,7 +33,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl, true);
+		xmlhttp.open("GET", baseurl+baseUrl0, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
@@ -64,18 +67,18 @@
 		element.classList.remove("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
 
-		xmlhttp.open("GET", baseurl2, true);
+		xmlhttp.open("GET", baseUrl+baseurl2, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
 				var tbltop = "<table class='table table-success table-striped'><tr><th>Consecutivo</th><th>Cedula</th><th>Nombre</th><th>ValorTotal</th>";
 				var main = "";
-
+				console.log("usuarios",usuarios[0].cedula_cliente.cedula_cliente);
 				for (i = 0; i < usuarios.length; i++) {
-					main += "<tr><td>" + usuarios[i].consecutivo + "</td><td>"
-							+ usuarios[i].cedula_cliente + "</td><td>"
-							+ usuarios[i].nombre_cliente + "</td><td>"
-							+ usuarios[i].valor_mas_iva;
+					main += "<tr><td>" + usuarios[i].codigo_venta + "</td><td>"
+							+ usuarios[i].cedula_cliente.cedula_cliente + "</td><td>"
+							+ usuarios[i].cedula_cliente.nombre_cliente + "</td><td>"
+							+ usuarios[i].valor_venta;
 				}
 				var tblbottom = "</table>";
 				var tbl = tbltop + main + tblbottom;
@@ -87,7 +90,7 @@
 					total += parseFloat(celdasPrecio[i].firstChild.data);
 					
 				}
-				document.getElementById("totalventas").value = total;
+				getTotal();
 
 			}
 		};
@@ -106,7 +109,7 @@
 		var element = document.getElementById("total");
 		element.classList.add("visually-hidden");
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", baseurl1, true);
+		xmlhttp.open("GET", baseUrl+baseurl1, true);
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				var usuarios = JSON.parse(xmlhttp.responseText);
@@ -129,6 +132,30 @@
 	window.onload = function() {
 		loadusuarios();
 	}
+	
+	function getTotal() {
+
+		var req = new XMLHttpRequest();
+
+
+		req.open('GET',baseUrl+
+				'/total', false);
+
+		req.send(null);
+		var usuario = null;
+		if (req.status == 200)
+			usuario = JSON.parse(req.responseText);
+		console.log(JSON.parse(req.responseText));
+		console.log(usuario.toString());
+
+		if (usuario.toString() != "") {
+			document.getElementById("totalventas").value = usuario[0].TOTAL;
+		} else {
+
+			document.getElementById("totalventas").value ="";
+
+		}
+	}
 </script>
 </head>
 <body>
@@ -146,90 +173,67 @@
 		<div class="container">
 
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
-				<div class="dropdown ">
-					<a class="nav-link  " href="#" role="button" id="dropdownMenuLink"
-						data-bs-toggle="dropdown" aria-expanded="false"> <i
-						class="fas fa-user-tie"></i> Usuarios
-					</a>
+  <div class="dropdown">
+  <a class="nav-link " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-user-tie"></i> Usuarios
+  </a>
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/listarusuarios.jsp><i class="fas fa-list"></i> Lista de Usuarios</a></li>
+    <li><a class="dropdown-item " href=<%=request.getContextPath()%>/insertarusuario.jsp><i class="fas fa-user-plus"></i> Insertar Usuario</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/eliminarusuario.jsp><i class="fas fa-trash-alt"></i> Eliminar Usuario</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/actualizarusuarios.jsp><i class="fas fa-user-cog"></i> Modificar Usuario</a></li>
+    <li><a class="dropdown-item"href=<%=request.getContextPath()%>/consultarusuario.jsp><i class="fas fa-search"></i> Buscar Usuario</a></li>
+  </ul>
+</div>
+<div class="dropdown">
+  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-address-book"></i> Clientes
+  </a>
 
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<li><a class="dropdown-item" href="listarusuarios.jsp"><i
-								class="fas fa-list"></i> Lista de Usuarios</a></li>
-						<li><a class="dropdown-item " href="insertarusuario.jsp"><i
-								class="fas fa-user-plus"></i> Insertar Usuario</a></li>
-						<li><a class="dropdown-item" href="eliminarusuario.jsp"><i
-								class="fas fa-trash-alt"></i> Eliminar Usuario</a></li>
-						<li><a class="dropdown-item" href="actualizarusuarios.jsp"><i
-								class="fas fa-user-cog"></i> Modificar Usuario</a></li>
-						<li><a class="dropdown-item" href="consultarusuario.jsp"><i
-								class="fas fa-search"></i> Buscar Usuario</a></li>
-					</ul>
-				</div>
-				<div class="dropdown">
-					<a class="nav-link" href="#" role="button" id="dropdownMenuLink"
-						data-bs-toggle="dropdown" aria-expanded="false"> <i
-						class="fas fa-address-book"></i> Clientes
-					</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/listarclientes.jsp><i class="fas fa-list"></i> Lista de Cliente</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/insertarcliente.jsp><i class="fas fa-user-plus"></i> Insertar Cliente</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/eliminarcliente.jsp><i class="fas fa-trash-alt"></i> Eliminar Cliente</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/actualizarcliente.jsp><i class="fas fa-user-cog"></i> Modificar Cliente</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/consultarcliente.jsp><i class="fas fa-search"></i> Buscar Cliente</a></li>
+  </ul>
+</div>
+ <div class="dropdown">
+  <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-truck-loading"></i> Proveedores
+  </a>
 
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<li><a class="dropdown-item" href="listarclientes.jsp"><i
-								class="fas fa-list"></i> Lista de Cliente</a></li>
-						<li><a class="dropdown-item" href="insertarcliente.jsp"><i
-								class="fas fa-user-plus"></i> Insertar Cliente</a></li>
-						<li><a class="dropdown-item" href="eliminarcliente.jsp"><i
-								class="fas fa-trash-alt"></i> Eliminar Cliente</a></li>
-						<li><a class="dropdown-item" href="actualizarcliente.jsp"><i
-								class="fas fa-user-cog"></i> Modificar Cliente</a></li>
-						<li><a class="dropdown-item" href="consultarcliente.jsp"><i
-								class="fas fa-search"></i> Buscar Cliente</a></li>
-					</ul>
-				</div>
-				<div class="dropdown">
-					<a class="nav-link" href="#" role="button" id="dropdownMenuLink"
-						data-bs-toggle="dropdown" aria-expanded="false"> <i
-						class="fas fa-truck-loading"></i> Proveedores
-					</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/listarproveedores.jsp><i class="fas fa-list"></i> Lista de Proveedores</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/insertarproveedor.jsp><i class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/eliminarproveedor.jsp><i class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/actualizarproveedor.jsp><i class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/consultarproveedor.jsp><i class="fas fa-search"></i> Buscar Proveedor</a></li>
+  </ul></div>
 
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						<li><a class="dropdown-item" href="listarproveedores.jsp"><i
-								class="fas fa-list"></i> Lista de Proveedores</a></li>
-						<li><a class="dropdown-item" href="insertarproveedor.jsp"><i
-								class="fas fa-user-plus"></i> Insertar Proveedor</a></li>
-						<li><a class="dropdown-item" href="eliminarproveedor.jsp"><i
-								class="fas fa-trash-alt"></i> Eliminar Proveedor</a></li>
-						<li><a class="dropdown-item" href="actualizarproveedor.jsp"><i
-								class="fas fa-user-cog"></i> Modificar Proveedor</a></li>
-						<li><a class="dropdown-item" href="consultarproveedor.jsp"><i
-								class="fas fa-search"></i> Buscar Proveedor</a></li>
-					</ul>
-				</div>
-
-
-
-				<li onclick="window.location.href='productos.jsp'" class="nav-item"
-					role="presentation">
-					<button class="nav-link" id="Productos" data-bs-toggle="tab"
-						data-bs-target="#contact" type="button" role="tab"
-						aria-controls="contact" aria-selected="false">
-						<i class="fas fa-cubes"></i> Productos
-					</button>
-				</li>
-				<a class="nav-link" href="ventas.jsp" role="button"
-					id="dropdownMenuLink" data-bs-toggle="dropdown"
-					aria-expanded="false"> <i class="fas fa-money-bill-wave"></i>
-					Ventas
-				</a>
-
-				<li class="nav-item  " role="presentation">
-					<button onclick="window.location.href=' reportes.jsp'"
-						class="nav-link active" id="reportes" data-bs-toggle="tab"
-						data-bs-target="#contact" type="button" role="tab"
-						aria-controls="contact" aria-selected="false">
-						<i class="fas fa-book"></i> Reportes
-					</button>
-				</li>
-			</ul>
-
+<div class="dropdown">
+  <a class="nav-link " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-truck-loading"></i> Productos
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/insertarproducto.jsp><i class="fas fa-list"></i> Carga productos</a></li>
+  </ul>
+  </div>
+  <div class="dropdown">
+  <a class="nav-link  " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-truck-loading"></i> Ventas
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/ventas.jsp><i class="fas fa-list"></i> Diligenciar venta</a></li>
+  </ul>
+ </div>
+<div class="dropdown">
+  <a class="nav-link active" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-truck-loading"></i>Reportes</a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href=<%=request.getContextPath()%>/reportes.jsp><i class="fas fa-list"></i> mostrar reportes</a></li>
+  </ul>
+ </div>
 
 		</div>
 	</nav>
