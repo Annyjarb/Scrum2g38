@@ -3,14 +3,14 @@ package com.grupo38.tiendagenerica.DAO;
 import java.sql.*;
 
 public class Conexion {
-//paramentos de conexion
-	static String nombre_base_datos="tiendalostiburones";
-	//root my sql
-	static String usuariobd = "root";
-	static String clavebd="";
-	
-	//quiere decir local host
-	static String url="jdbc:mysql://localhost:3306/"+ nombre_base_datos;
+	//paramentos de conexion
+		static String nombre_base_datos="g38e2";
+		//root my sql
+		static String usuariobd = "admin";
+		static String clavebd="minticroca";
+		
+		//quiere decir local host
+		static String url="jdbc:mysql://tiendasgenericasdr-g9-g38-53.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/"+ nombre_base_datos;
 	
 	//objeto sin inicializar
 	
